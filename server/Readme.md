@@ -25,31 +25,11 @@
 title xxxx
 java -jar -Xms64m -Xmx128m -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=64m xxxxx.jar
 
-
-### 数据库相关
-
-删除数据库命令：
-
-drop database if exists book;
-
-创建数据库命令：
-
-CREATE DATABASE IF NOT EXISTS book DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
-
-数据库备份命令:
-
-mysqldump -u root -p --databases 数据库名称 > xxx.sql
-
-数据库恢复命令：
-
-source D:\\xxx.sql
-
-
 ### 常见问题
 
 #### 日志路径
 
-修改logback-spring.xml下的LOG_HOME的value值
+修改logback-spring.xml下的LOG_HOME的value值，将日志保存到你创建的目录下
 
 #### 配置数据库
 
