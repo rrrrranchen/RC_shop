@@ -19,6 +19,9 @@
                 <a @click="goUserCenter('orderView')">订单中心</a>
               </a-menu-item>
               <a-menu-item>
+                <a @click="goUserCenter('wishThingView')">购物车</a>
+              </a-menu-item>
+              <a-menu-item>
                 <a @click="goUserCenter('userInfoEditView')">个人设置</a>
               </a-menu-item>
               <a-menu-item>

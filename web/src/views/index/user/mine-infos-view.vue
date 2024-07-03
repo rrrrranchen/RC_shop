@@ -19,7 +19,7 @@
         <div class="split-line">
         </div>
         <div class="follow-box flex-item" @click="clickMenu('wishThingView')">
-          <div class="text">心愿单</div>
+          <div class="text">购物车</div>
           <div class="num">{{wishCount}}</div>
         </div>
 <!--        <div class="split-line">-->

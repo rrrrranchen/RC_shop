@@ -41,7 +41,7 @@
                 </div>
                 <div class="count-box flex-view">
                   <div class="count-text-box">
-                    <span class="count-title">加入心愿单</span>
+                    <span class="count-title">加入购物车</span>
                   </div>
                   <div class="count-num-box">
                     <span class="num-text">{{ detailData.wishCount }}</span>

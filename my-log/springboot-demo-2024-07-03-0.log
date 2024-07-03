@@ -1,0 +1,43 @@
+2024-07-03 01:01:45.231 [ main ] - [ INFO  ] [ com.gk.study.MySpringApplication : 55 ] - Starting MySpringApplication using Java 17.0.10 on RanChen with PID 22416 (C:\Users\13925\Desktop\java_shop\server\target\classes started by 13925 in C:\Users\13925\Desktop\java_shop)
+2024-07-03 01:01:45.241 [ main ] - [ INFO  ] [ com.gk.study.MySpringApplication : 659 ] - No active profile set, falling back to default profiles: default
+2024-07-03 01:01:46.410 [ main ] - [ INFO  ] [ org.apache.coyote.http11.Http11NioProtocol : 173 ] - Initializing ProtocolHandler ["http-nio-9100"]
+2024-07-03 01:01:46.411 [ main ] - [ INFO  ] [ org.apache.catalina.core.StandardService : 173 ] - Starting service [Tomcat]
+2024-07-03 01:01:46.412 [ main ] - [ INFO  ] [ org.apache.catalina.core.StandardEngine : 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.53]
+2024-07-03 01:01:46.514 [ main ] - [ INFO  ] [ o.a.c.c.ContainerBase.[Tomcat].[localhost].[/api] : 173 ] - Initializing Spring embedded WebApplicationContext
+2024-07-03 01:01:46.631 [ main ] - [ INFO  ] [ c.a.d.s.b.a.DruidDataSourceAutoConfigure : 56 ] - Init DruidDataSource
+2024-07-03 01:01:47.328 [ main ] - [ INFO  ] [ com.alibaba.druid.pool.DruidDataSource : 975 ] - {dataSource-1} inited
+2024-07-03 01:01:47.551 [ main ] - [ WARN  ] [ c.b.mybatisplus.core.metadata.TableInfoHelper : 342 ] - Can not find table primary key in Class: "java.lang.Object".
+2024-07-03 01:01:47.552 [ main ] - [ WARN  ] [ c.b.mybatisplus.core.injector.DefaultSqlInjector : 56 ] - class java.lang.Object ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-07-03 01:01:48.298 [ main ] - [ INFO  ] [ org.apache.coyote.http11.Http11NioProtocol : 173 ] - Starting ProtocolHandler ["http-nio-9100"]
+2024-07-03 01:01:48.329 [ main ] - [ INFO  ] [ com.gk.study.MySpringApplication : 61 ] - Started MySpringApplication in 3.562 seconds (JVM running for 4.341)
+2024-07-03 01:02:26.473 [ http-nio-9100-exec-1 ] - [ INFO  ] [ o.a.c.c.ContainerBase.[Tomcat].[localhost].[/api] : 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-03 01:02:26.741 [ http-nio-9100-exec-8 ] - [ WARN  ] [ c.b.m.core.toolkit.support.ReflectLambdaMeta : 41 ] - Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @56620197
+2024-07-03 01:05:03.799 [ http-nio-9100-exec-2 ] - [ INFO  ] [ com.gk.study.interceptor.AccessInterceptor : 88 ] - token==>3af1f9567b38d797e81d42938db2d0d6
+2024-07-03 01:06:20.431 [ http-nio-9100-exec-2 ] - [ INFO  ] [ com.gk.study.interceptor.AccessInterceptor : 88 ] - token==>3af1f9567b38d797e81d42938db2d0d6
+2024-07-03 01:06:42.356 [ http-nio-9100-exec-10 ] - [ INFO  ] [ com.gk.study.interceptor.AccessInterceptor : 88 ] - token==>3af1f9567b38d797e81d42938db2d0d6
+2024-07-03 01:07:05.705 [ http-nio-9100-exec-6 ] - [ INFO  ] [ com.gk.study.interceptor.AccessInterceptor : 88 ] - token==>3af1f9567b38d797e81d42938db2d0d6
+2024-07-03 01:07:35.819 [ http-nio-9100-exec-8 ] - [ INFO  ] [ com.gk.study.interceptor.AccessInterceptor : 88 ] - token==>3af1f9567b38d797e81d42938db2d0d6
+2024-07-03 01:07:38.515 [ http-nio-9100-exec-7 ] - [ INFO  ] [ com.gk.study.interceptor.AccessInterceptor : 88 ] - token==>3af1f9567b38d797e81d42938db2d0d6
+2024-07-03 01:07:44.638 [ http-nio-9100-exec-3 ] - [ INFO  ] [ com.gk.study.interceptor.AccessInterceptor : 88 ] - token==>3af1f9567b38d797e81d42938db2d0d6
+2024-07-03 01:21:09.418 [ SpringApplicationShutdownHook ] - [ INFO  ] [ com.alibaba.druid.pool.DruidDataSource : 2063 ] - {dataSource-1} closing ...
+2024-07-03 01:21:09.421 [ SpringApplicationShutdownHook ] - [ INFO  ] [ com.alibaba.druid.pool.DruidDataSource : 2136 ] - {dataSource-1} closed
+2024-07-03 22:41:37.036 [ main ] - [ INFO  ] [ com.gk.study.MySpringApplication : 55 ] - Starting MySpringApplication using Java 17.0.10 on RanChen with PID 13964 (C:\Users\13925\Desktop\java_shop\server\target\classes started by 13925 in C:\Users\13925\Desktop\java_shop)
+2024-07-03 22:41:37.041 [ main ] - [ INFO  ] [ com.gk.study.MySpringApplication : 659 ] - No active profile set, falling back to default profiles: default
+2024-07-03 22:41:38.159 [ main ] - [ INFO  ] [ org.apache.coyote.http11.Http11NioProtocol : 173 ] - Initializing ProtocolHandler ["http-nio-9100"]
+2024-07-03 22:41:38.160 [ main ] - [ INFO  ] [ org.apache.catalina.core.StandardService : 173 ] - Starting service [Tomcat]
+2024-07-03 22:41:38.160 [ main ] - [ INFO  ] [ org.apache.catalina.core.StandardEngine : 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.53]
+2024-07-03 22:41:38.251 [ main ] - [ INFO  ] [ o.a.c.c.ContainerBase.[Tomcat].[localhost].[/api] : 173 ] - Initializing Spring embedded WebApplicationContext
+2024-07-03 22:41:38.353 [ main ] - [ INFO  ] [ c.a.d.s.b.a.DruidDataSourceAutoConfigure : 56 ] - Init DruidDataSource
+2024-07-03 22:41:39.248 [ main ] - [ INFO  ] [ com.alibaba.druid.pool.DruidDataSource : 975 ] - {dataSource-1} inited
+2024-07-03 22:41:39.498 [ main ] - [ WARN  ] [ c.b.mybatisplus.core.metadata.TableInfoHelper : 342 ] - Can not find table primary key in Class: "java.lang.Object".
+2024-07-03 22:41:39.498 [ main ] - [ WARN  ] [ c.b.mybatisplus.core.injector.DefaultSqlInjector : 56 ] - class java.lang.Object ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2024-07-03 22:41:40.288 [ main ] - [ INFO  ] [ org.apache.coyote.http11.Http11NioProtocol : 173 ] - Starting ProtocolHandler ["http-nio-9100"]
+2024-07-03 22:41:40.320 [ main ] - [ INFO  ] [ com.gk.study.MySpringApplication : 61 ] - Started MySpringApplication in 3.771 seconds (JVM running for 4.561)
+2024-07-03 22:43:00.385 [ http-nio-9100-exec-3 ] - [ INFO  ] [ o.a.c.c.ContainerBase.[Tomcat].[localhost].[/api] : 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-03 22:43:00.771 [ http-nio-9100-exec-5 ] - [ WARN  ] [ c.b.m.core.toolkit.support.ReflectLambdaMeta : 41 ] - Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @56620197
+2024-07-03 22:44:11.496 [ http-nio-9100-exec-2 ] - [ INFO  ] [ com.gk.study.interceptor.AccessInterceptor : 74 ] - token==>f159053ec4a0e4a0e3c66cfd7c254853
+2024-07-03 22:45:03.114 [ http-nio-9100-exec-10 ] - [ INFO  ] [ com.gk.study.interceptor.AccessInterceptor : 74 ] - token==>f159053ec4a0e4a0e3c66cfd7c254853
+2024-07-03 22:51:45.632 [ http-nio-9100-exec-9 ] - [ INFO  ] [ com.gk.study.interceptor.AccessInterceptor : 74 ] - token==>f159053ec4a0e4a0e3c66cfd7c254853
+2024-07-03 22:52:37.220 [ http-nio-9100-exec-10 ] - [ INFO  ] [ com.gk.study.interceptor.AccessInterceptor : 74 ] - token==>f159053ec4a0e4a0e3c66cfd7c254853
+2024-07-03 23:23:42.030 [ SpringApplicationShutdownHook ] - [ INFO  ] [ com.alibaba.druid.pool.DruidDataSource : 2063 ] - {dataSource-1} closing ...
+2024-07-03 23:23:42.042 [ SpringApplicationShutdownHook ] - [ INFO  ] [ com.alibaba.druid.pool.DruidDataSource : 2136 ] - {dataSource-1} closed

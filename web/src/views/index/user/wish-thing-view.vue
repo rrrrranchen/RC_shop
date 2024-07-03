@@ -1,6 +1,6 @@
 <template>
   <div class="content-list">
-    <div class="list-title">我的心愿单</div>
+    <div class="list-title">我的购物车</div>
     <div role="tablist" class="list-tabs-view flex-view">
     </div>
     <div class="list-content">
