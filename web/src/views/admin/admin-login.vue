@@ -141,7 +141,7 @@ const loginSuccess = () => {
   .main-container {
     width: 100%;
     height: calc(100vh - 160px);
-    background-image: url('../images/admin-login-bg.jpg');
+    background-image: linear-gradient(to bottom, #FFFFFF, #7FFFD4, #FFFFFF);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

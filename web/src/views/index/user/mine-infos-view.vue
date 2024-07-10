@@ -1,7 +1,8 @@
 <template>
   <div class="mine-infos-view">
     <div class="info-box flex-view">
-      <img :src="AvatarImg" class="avatar-img">
+      <img v-if="tData.form && tData.form.avatar" :src="tData.form.avatar" class="avatar-img">
+      <img v-else :src="AvatarIcon" class="avatar-img">
       <div class="name-box">
         <h2 class="nick">{{ userStore.user_name }}</h2>
         <div class="age">
@@ -89,18 +90,47 @@ import MessageIconImage from '/@/assets/images/setting-msg-icon.svg'
 import {userCollectListApi} from '/@/api/thingCollect'
 import {userWishListApi} from '/@/api/thingWish'
 import {useUserStore} from '/@/store';
+import AvatarIcon from "/@/assets/images/avatar.jpg";
+import {detailApi} from "/@/api/user";
+import {BASE_URL} from "/@/store/constants";
 const userStore = useUserStore();
 const router = useRouter();
 
-
+let loading = ref(false)
 let collectCount = ref(0)
 let wishCount = ref(0)
 
+let tData = reactive({
+  form:{
+    avatar: undefined,
+    avatarFile: undefined,
+    nickname: undefined,
+    email: undefined,
+    mobile: undefined,
+    description: undefined,
+  }
+})
+
 onMounted(()=>{
+  getUserInfo()
   getCollectThingList()
   getWishThingList()
 })
 
+const getUserInfo =()=> {
+  loading.value = true
+  let userId = userStore.user_id
+  detailApi({userId: userId}).then(res => {
+    tData.form = res.data
+    if (tData.form.avatar) {
+      tData.form.avatar = BASE_URL + '/api/staticfiles/avatar/' + tData.form.avatar
+    }
+    loading.value = false
+  }).catch(err => {
+    console.log(err)
+    loading.value = false
+  })
+}
 const clickMenu =(name)=> {
   router.push({name: name})
 }

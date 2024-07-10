@@ -89,15 +89,17 @@ div {
 }
 
 .container {
-  //background-color: #f1f1f1;
-  background-image: url('../images/admin-login-bg.jpg');
+  max-width: 100%;
+  /* 移除背景图片 */
+  /* background-image: url('../images/admin-login-bg.jpg'); */
+  background: linear-gradient(to bottom, #FFFFFF, #7FFFD4); /* 从顶部的蓝色到底部的绿色渐变 */
   background-size: cover;
   object-fit: cover;
-  height: 100%;
-  max-width: 100%;
-  display:flex;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
 
 .new-content {

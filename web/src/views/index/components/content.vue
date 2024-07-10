@@ -15,40 +15,49 @@
         </div>
       </div>
     </div>
+
     <div class="content-right">
-      <div class="top-select-view flex-view">
-        <div class="order-view">
-          <span class="title"></span>
-          <span class="tab"
-                :class="contentData.selectTabIndex===index? 'tab-select':''"
-                v-for="(item,index) in contentData.tabData"
-                :key="index"
-                @click="selectTab(index)">
-            {{ item }}
-          </span>
-          <span :style="{left: contentData.tabUnderLeft + 'px'}" class="tab-underline"></span>
-        </div>
+
+      <div class="top-content">
+        <!-- 在这里放置上栏的内容 -->
+
       </div>
-      <a-spin :spinning="contentData.loading" style="min-height: 200px;">
-        <div class="pc-thing-list flex-view">
-          <div v-for="item in contentData.pageData" :key="item.id" @click="handleDetail(item)"
-               class="thing-item item-column-3"><!---->
-            <div class="img-view">
-              <img :src="item.cover"></div>
-            <div class="info-view">
-              <h3 class="thing-name">{{ item.title.substring(0, 12) }}</h3>
-              <span>
-                <span class="a-price-symbol">¥</span>
-                <span class="a-price">{{ item.price }}</span>
-              </span>
-            </div>
+
+      <div class="bottom-content">
+        <div class="top-select-view flex-view">
+          <div class="order-view">
+            <span class="title"></span>
+            <span class="tab"
+                  :class="contentData.selectTabIndex===index? 'tab-select':''"
+                  v-for="(item,index) in contentData.tabData"
+                  :key="index"
+                  @click="selectTab(index)">
+              {{ item }}
+            </span>
+            <span :style="{left: contentData.tabUnderLeft + 'px'}" class="tab-underline"></span>
           </div>
-          <div v-if="contentData.pageData.length <= 0 && !contentData.loading" class="no-data" style="">暂无数据</div>
         </div>
-      </a-spin>
-      <div class="page-view" style="">
-        <a-pagination v-model="contentData.page" size="small" @change="changePage" :hideOnSinglePage="true"
-                      :defaultPageSize="contentData.pageSize" :total="contentData.total" :showSizeChanger="false"/>
+        <a-spin :spinning="contentData.loading" style="min-height: 200px;">
+          <div class="pc-thing-list flex-view">
+            <div v-for="item in contentData.pageData" :key="item.id" @click="handleDetail(item)"
+                 class="thing-item item-column-3"><!---->
+              <div class="img-view">
+                <img :src="item.cover"></div>
+              <div class="info-view">
+                <h3 class="thing-name">{{ item.title.substring(0, 12) }}</h3>
+                <span>
+                  <span class="a-price-symbol">¥</span>
+                  <span class="a-price">{{ item.price }}</span>
+                </span>
+              </div>
+            </div>
+            <div v-if="contentData.pageData.length <= 0 && !contentData.loading" class="no-data" style="">暂无数据</div>
+          </div>
+        </a-spin>
+        <div class="page-view" style="">
+          <a-pagination v-model="contentData.page" size="small" @change="changePage" :hideOnSinglePage="true"
+                        :defaultPageSize="contentData.pageSize" :total="contentData.total" :showSizeChanger="false"/>
+        </div>
       </div>
     </div>
   </div>
@@ -60,6 +69,11 @@ import {listApi as listTagList} from '/@/api/tag'
 import {listApi as listThingList} from '/@/api/thing'
 import {BASE_URL} from "/@/store/constants";
 import {useUserStore} from "/@/store";
+
+
+
+
+
 
 const userStore = useUserStore()
 const router = useRouter();
@@ -90,9 +104,9 @@ onMounted(() => {
 })
 
 const initSider = () => {
-  contentData.cData.push({key:'-1', title:'全部'})
+  contentData.cData.push({key: '-1', title: '全部'})
   listClassificationList().then(res => {
-    res.data.forEach(item=>{
+    res.data.forEach(item => {
       item.key = item.id
       contentData.cData.push(item)
     })
@@ -155,7 +169,7 @@ const getThingList = (data) => {
     contentData.loading = false
     res.data.forEach((item, index) => {
       if (item.cover) {
-        item.cover = BASE_URL + '/api/staticfiles/image/' +  item.cover
+        item.cover = BASE_URL + '/api/staticfiles/image/' + item.cover
       }
     })
     console.log(res)
@@ -323,6 +337,8 @@ li {
   -ms-flex: 1;
   flex: 1;
   padding-top: 12px;
+  display: flex;
+  flex-direction: column;
 
   .pc-search-view {
     margin: 0 0 24px;
@@ -458,81 +474,77 @@ li {
   }
 
   .pc-thing-list {
-    -ms-flex-wrap: wrap;
+    display: flex;
     flex-wrap: wrap;
+    justify-content: space-between; /* 保持组件之间的间隔一致 */
+  }
 
-    .thing-item {
-      min-width: 255px;
-      max-width: 255px;
-      position: relative;
-      flex: 1;
-      margin-right: 20px;
-      height: fit-content;
-      overflow: hidden;
-      margin-top: 26px;
-      margin-bottom: 36px;
-      cursor: pointer;
+  .thing-item {
+    width: 255px; /* 固定宽度 */
+    height: 340px; /* 根据图片和内容调整固定高度 */
+    border: 1px solid #e8e8e8; /* 边框颜色 */
+    border-radius: 10px; /* 圆角边框 */
+    overflow: hidden;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+    background-color: #dcfcea; /* 修改背景颜色为 #cafae0 */
 
-      .img-view {
-        //text-align: center;
-        height: 200px;
-        width: 255px;
-
-        img {
-          height: 200px;
-          width: 186px;
-          margin: 0 auto;
-          background-size: contain;
-          object-fit: contain;
-        }
-      }
-
-      .info-view {
-        //background: #f6f9fb;
-        overflow: hidden;
-        padding: 0 16px;
-
-        .thing-name {
-          line-height: 32px;
-          margin-top: 12px;
-          color: #0F1111 !important;
-          font-size: 15px !important;
-          font-weight: 400 !important;
-          font-style: normal !important;
-          text-transform: none !important;
-          text-decoration: none !important;
-        }
-
-        .price {
-          color: #ff7b31;
-          font-size: 20px;
-          line-height: 20px;
-          margin-top: 4px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-
-        .translators {
-          color: #6f6f6f;
-          font-size: 12px;
-          line-height: 14px;
-          margin-top: 4px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-      }
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
     }
 
-    .no-data {
-      height: 200px;
-      line-height: 200px;
-      text-align: center;
+    .img-view {
       width: 100%;
-      font-size: 16px;
-      color: #152844;
+      height: 200px; /* 根据图片大小调整高度 */
+      background-color: #fff; /* 确保图片背景色为白色，以便图片边缘与背景对比明显 */
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
     }
+
+    .info-view {
+      padding: 16px;
+      background-color: #dcfcea; /* 信息区域背景色与组件背景色一致 */
+      height: calc(100% - 200px);
+    }
+
+    .thing-name {
+      font-size: 14px;
+      color: #0F1111;
+      height: 32px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .price {
+      font-size: 18px;
+      color: #ff7b31;
+      margin-top: 8px;
+    }
+
+    .translators {
+      font-size: 12px;
+      color: #6f6f6f;
+      margin-top: 4px;
+    }
+  }
+
+  .no-data {
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    color: #152844;
+    background-color: #cafae0; /* 无数据提示区域的背景色 */
   }
 
   .page-view {
@@ -540,6 +552,22 @@ li {
     text-align: center;
     margin-top: 48px;
   }
+}
+
+.top-content {
+  /* 为上栏设置样式，例如高度、背景色、内边距等 */
+  width: 100%; /* 占满整个容器宽度 */
+  height: 250px; /* 根据需要调整高度 */
+  padding: 20px; /* 内边距示例 */
+  background-image: url('C:\Users\13925\Desktop\java_shop\web\src\assets\images\welcome.jpg'); /* 替换为您的图片路径 */
+  background-size: cover; /* 背景图片覆盖整个元素 */
+  background-position: center; /* 背景图片居中 */
+  background-repeat: no-repeat; /* 背景图片不重复 */
+}
+
+.bottom-content {
+  /* 为下栏设置样式，可能不需要太多修改，主要是确保flex-grow允许其自适应剩余空间 */
+  flex-grow: 1;
 }
 
 .a-price-symbol {
@@ -551,5 +579,6 @@ li {
   color: #0F1111;
   font-size: 21px;
 }
+
 
 </style>

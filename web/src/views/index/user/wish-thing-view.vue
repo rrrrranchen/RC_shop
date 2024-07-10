@@ -1,12 +1,16 @@
 <template>
   <div class="content-list">
-    <div class="list-title">我的购物车</div>
+    <div class="list-container flex-view">
+      <div class="list-title">我的购物车</div>
+      <button class="btn pay jiesuan" @click="handleJiesuan()">结算</button>
+    </div>
     <div role="tablist" class="list-tabs-view flex-view">
     </div>
     <div class="list-content">
       <div class="collect-thing-view">
         <div class="thing-list flex-view">
           <div class="thing-item item-column-3" v-for="(item,index) in wishData" :key="index">
+            <input type="checkbox" v-model="item.selected" @change="handleSelectChange(item, $event)">
             <div class="remove" @click="handleRemove(item)">移出</div>
             <div class="img-view" @click="handleClickItem(item)">
               <img :src="item.cover">
@@ -33,11 +37,27 @@ const router = useRouter();
 const route = useRoute();
 const userStore = useUserStore();
 
-let wishData = ref([])
+let wishData = ref([{
+  selected: false
+}
+])
 
 onMounted(()=>{
   getWishThingList()
 })
+
+const handleJiesuan = () => {
+  const selectedIds = wishData.filter(item => item.selected).map(item => item.id);
+  if (selectedIds.length === 0) {
+    message.warning('请选择至少一个商品进行结算');
+    return;
+  }
+  router.push({ name: 'confirm', query: { ids: selectedIds.join(',') } });
+};
+
+const handleSelectChange = (item, event) => {
+  item.selected = event.target.checked;
+};
 
 const handleClickItem =(record)=> {
   let text = router.resolve({name: 'detail', query: {id: record.id}})
@@ -94,12 +114,12 @@ const getWishThingList =()=> {
   }
 }
 
-.thing-list {
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+  .thing-list {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
 
   .thing-item {
     position: relative;
@@ -179,4 +199,29 @@ const getWishThingList =()=> {
     }
   }
 }
+
+.jiesuan {
+  cursor: pointer;
+  background: #4684e2;
+  color: #fff;
+}
+
+.btn {
+  cursor: pointer;
+  width: 96px;
+  height: 36px;
+  line-height: 33px;
+  margin-left: auto;
+  text-align: center;
+  border-radius: 32px;
+  border: 1px solid #4684e2;
+  font-size: 16px;
+  outline: none;
+}
+
+.flex-view {
+  display: flex;
+  align-items: center; /* 垂直居中对齐 */
+}
+
 </style>

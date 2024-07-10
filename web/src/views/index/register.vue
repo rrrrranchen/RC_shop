@@ -102,17 +102,17 @@ div {
 
 .container {
   max-width: 100%;
-  //background: #142131;
-  background-image: url('../images/admin-login-bg.jpg');
+  /* 移除背景图片 */
+  /* background-image: url('../images/admin-login-bg.jpg'); */
+  background: linear-gradient(to bottom, #FFFFFF, #7FFFD4); /* 从顶部的蓝色到底部的绿色渐变 */
   background-size: cover;
   object-fit: cover;
   height: 100vh;
   overflow: hidden;
-  display:flex;
+  display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
-
 .pc-style {
   position: relative;
   width: 400px;

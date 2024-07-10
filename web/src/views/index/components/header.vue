@@ -11,7 +11,8 @@
       <template v-if="userStore.user_token">
         <a-dropdown>
           <a class="ant-dropdown-link" @click="e => e.preventDefault()">
-            <img :src="AvatarIcon" class="self-img" >
+            <img v-if="tData.form && tData.form.avatar" :src="tData.form.avatar" class="self-img">
+            <img v-else :src="AvatarIcon" class="self-img">
           </a>
           <template #overlay>
             <a-menu>
@@ -88,6 +89,8 @@ import logoImage from '/@/assets/images/RC-logo.png';
 import SearchIcon from '/@/assets/images/search-icon.svg';
 import AvatarIcon from '/@/assets/images/avatar.jpg';
 import MessageIcon from '/@/assets/images/message-icon.svg';
+import {detailApi} from "/@/api/user";
+import {BASE_URL} from "/@/store/constants";
 
 
 const router = useRouter();
@@ -100,9 +103,36 @@ let loading = ref(false)
 let msgVisible = ref(false)
 let msgData = ref([] as any)
 
+let tData = reactive({
+  form:{
+    avatar: undefined,
+    avatarFile: undefined,
+    nickname: undefined,
+    email: undefined,
+    mobile: undefined,
+    description: undefined,
+  }
+})
+
 onMounted(()=>{
+  getUserInfo()
   getMessageList()
 })
+
+const getUserInfo =()=> {
+  loading.value = true
+  let userId = userStore.user_id
+  detailApi({userId: userId}).then(res => {
+    tData.form = res.data
+    if (tData.form.avatar) {
+      tData.form.avatar = BASE_URL + '/api/staticfiles/avatar/' + tData.form.avatar
+    }
+    loading.value = false
+  }).catch(err => {
+    console.log(err)
+    loading.value = false
+  })
+}
 
 const getMessageList = ()=> {
   loading.value = true
@@ -148,7 +178,7 @@ const onClose = () => {
   left: 0;
   height: 56px;
   width: 100%;
-  background: #fff;
+  background: #b9f8d6;
   border-bottom: 1px solid #cedce4;
   padding-left: 48px;
   z-index: 16;
