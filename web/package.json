@@ -1,7 +1,7 @@
 {
   "name": "my-web-app",
   "version": "0.1.2",
-  "author": "lengqin1024",
+  "author": "rrrrranchen",
   "scripts": {
     "dev": "vite --mode development",
     "build": "vite build",

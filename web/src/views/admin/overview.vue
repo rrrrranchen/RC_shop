@@ -217,8 +217,6 @@ const initBarChart = () => {
     xData.push(item.title)
     yData.push(item.count)
   })
-  // const xData = ['遥远的救世主', '平凡的世界', '测试书籍12', '测试书籍13', '测试书籍14', '测试书籍15', '测试书籍16', '测试书籍17']
-  // const yData = [220, 200, 180, 150, 130, 110, 100, 80]
   barChart = echarts.init(barChartDiv.value)
   let option = {
     grid: {
